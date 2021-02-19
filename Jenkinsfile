@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                powershell label: '', script: './gradlew build'
+                powershell label: '', script: '.\gradlew build'
             }
         }
         stage('Test') {
