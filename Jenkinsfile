@@ -2,11 +2,17 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out..'
+                checkout scm
+
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
-                checkout scm
-
+                powershell label: '', script: 'gradlew build'
             }
         }
         stage('Test') {
